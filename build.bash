@@ -1,9 +1,12 @@
 #!/bin/bash
 # Build and Clean in one step to keep image manageable
 
-scons -j$(nproc) --ignore-style build/ARM/gem5.opt
+ARCH=X86
+
+scons -j$(nproc) --ignore-style build/$ARCH/gem5.opt
 rm -f /usr/local/bin/gem5.opt
-mv build/ARM/gem5.opt /usr/local/bin
+cp build/$ARCH/gem5.opt /tmp/gem5.opt
 rm -rf build
-mkdir -p build/ARM
-ln -s /usr/local/bin/gem5.opt build/ARM/gem5.opt
+mkdir -p build/$ARCH
+mv /tmp/gem5.opt build/$ARCH
+ln -s build/$ARCH/gem5.opt /usr/local/bin/gem5.opt
