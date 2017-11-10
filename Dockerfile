@@ -8,7 +8,7 @@ RUN apt-get clean
 
 # checkout repo with mercurial
 WORKDIR /usr/local/src
-RUN git clone --depth 1 https://github.com/gem5/gem5.git
+RUN git clone --depth 1 -b stable https://gitlab.com/SuperBo/gem5.git
 # build it
 WORKDIR /usr/local/src/gem5
 ADD build.bash /usr/local/src/gem5/build.bash
