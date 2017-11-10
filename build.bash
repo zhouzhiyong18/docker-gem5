@@ -4,6 +4,7 @@
 ARCH=X86
 
 scons -j$(nproc) --ignore-style build/$ARCH/gem5.opt
+scons -c
 rm -f /usr/local/bin/gem5.opt
 cp build/$ARCH/gem5.opt /tmp/gem5.opt
 rm -rf build
