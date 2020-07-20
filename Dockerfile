@@ -3,8 +3,9 @@ MAINTAINER Eric Van Hensbergen <ericvh@gmail.com>
 
 # get dependencies
 RUN apt-get update
-RUN apt-get install -y build-essential git-core m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev swig python-dev python
+RUN apt-get install -y build-essential git-core m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev swig python-dev python python-pip
 RUN apt-get clean
+RUN pip install six
 
 # checkout repo with mercurial
 WORKDIR /usr/local/src
