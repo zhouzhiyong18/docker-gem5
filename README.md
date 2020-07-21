@@ -13,13 +13,13 @@ for more information visit http://gem5.org
 download the repo
 
 ```
-git clone https://github.com/zhouzhiyong18/docker-gem5.git
+$ git clone https://github.com/zhouzhiyong18/docker-gem5.git
 ```
 
 enter the directory
 
 ```
-cd docker-gem5
+$ cd docker-gem5
 ```
 
 build the image
@@ -34,7 +34,7 @@ run a container
 $ docker run --rm -it <name:tag> bash
 ```
 
-then, simulate the simple program with `gem5.opt`
+then, simulate the simple program with `gem5.opt` in the container
 
 ```
 root@7b0af4288513:~# gem5.opt /usr/local/gem5/configs/learning_gem5/part1/simple.py
