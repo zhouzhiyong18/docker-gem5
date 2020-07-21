@@ -3,9 +3,8 @@ MAINTAINER Eric Van Hensbergen <ericvh@gmail.com>
 
 # get dependencies
 RUN apt-get update
-RUN apt-get install -y build-essential git-core m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev swig python-dev python python-pip
+RUN apt-get install -y build-essential git-core m4 scons zlib1g zlib1g-dev libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev swig python-dev python python-six
 RUN apt-get clean
-RUN pip install six
 
 # checkout repo with mercurial
 WORKDIR /usr/local/src
@@ -21,7 +20,7 @@ FROM ubuntu:16.04
 LABEL maintainer="supernbo@gmail.com"
 COPY --from=builder /usr/local/src/gem5 /usr/local/gem5
 RUN apt-get update && apt-get install -y python libpython2.7 \
-        libprotobuf9v5 libgoogle-perftools4 \
+        libprotobuf9v5 libgoogle-perftools4 python-six \
         && ln -s /usr/local/gem5/build/X86/gem5.opt /usr/local/bin/gem5.opt \
         && rm -rf /var/lib/apt/lists/*
 WORKDIR /root
